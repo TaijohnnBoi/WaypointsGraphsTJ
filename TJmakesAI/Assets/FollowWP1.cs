@@ -21,8 +21,9 @@ public class FollowWP1 : MonoBehaviour
         wps = wpManager.GetComponent<WPManager>().waypoints;
         g = wpManager.GetComponent<WPManager>().graph;
         currentNode = wps[0];
+        Time.timeScale = 5;
 
-        Invoke("GoToRuin", 2);
+        //Invoke("GoToRuin", 2);
     }
     public void GoToHeli()
     {
@@ -36,6 +37,11 @@ public class FollowWP1 : MonoBehaviour
         currentWP = 0;
     }
 
+    public void GoToFactory()
+    {
+        g.AStar(currentNode, wps[7]);
+        currentWP = 0;
+    }
     // Update is called once per frame
     void LateUpdate()
     {
